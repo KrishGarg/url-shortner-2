@@ -25,7 +25,7 @@ app.get("/:shortURL", async (req, res) => {
   return res.redirect(data.longURL);
 });
 
-if (process.env.NODE_ENV !== "production") {
+if (!process.env.DETA_RUNTIME) {
   app.listen(3000, () => {
     console.log("Listening on http://localhost:3000");
   });

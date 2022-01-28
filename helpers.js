@@ -36,7 +36,7 @@ async function updateDBWithShorten(longURL) {
 function getDB() {
   let deta;
 
-  if (process.env.NODE_ENV !== "production") {
+  if (!process.env.DETA_RUNTIME) {
     require("dotenv").config();
     deta = Deta(process.env.DETA_PROJECT_KEY);
   } else {
