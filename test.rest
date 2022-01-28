@@ -1,4 +1,4 @@
-@testShortURL=E5OWlujs
+@testShortURL=wiHrJ1S9
 @testAPI=http://localhost:3000
 
 # Should update the database and return the short URL
