@@ -1,0 +1,55 @@
+@testShortURL=E5OWlujs
+@testAPI=http://localhost:3000
+
+# Should update the database and return the short URL
+
+POST {{testAPI}}/api/shorten
+Content-Type: application/json
+
+{
+  "longURL": "https://www.google.co.in"
+}
+
+###
+
+# Should error as no longURL
+
+POST {{testAPI}}/api/shorten
+
+
+###
+
+# Should error as not a valid longURL
+
+POST {{testAPI}}/api/shorten
+Content-Type: application/json
+
+{
+  "longURL": "abcd"
+}
+
+###
+
+# Should return a json successfully with the specific URL
+
+GET {{testAPI}}/api/shorten
+  ?shortURL={{testShortURL}}
+
+###
+
+# Should return 404
+
+GET {{testAPI}}/api/shorten
+  ?shortURL=abcd
+
+###
+
+# Should redirect to the specific URL
+
+GET {{testAPI}}/{{testShortURL}}
+
+###
+
+# Should give 404
+
+GET {{testAPI}}/abcd

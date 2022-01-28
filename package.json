@@ -1,0 +1,15 @@
+{
+  "name": "url-shortner-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "deta": "^1.0.1",
+    "express": "^4.17.2",
+    "nanoid": "^3.2.0",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "dotenv": "^14.3.2"
+  }
+}
