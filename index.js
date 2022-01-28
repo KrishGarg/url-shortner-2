@@ -2,6 +2,7 @@ const express = require("express");
 const { Deta } = require("deta");
 const { isUri } = require("valid-url");
 const { nanoid } = require("nanoid");
+const { join } = require("path");
 
 let deta;
 
@@ -15,9 +16,13 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 app.use(express.json());
 
+app.use(express.static(join(__dirname, "frontend", "dist")));
+
 const db = deta.Base("url-shortner");
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) =>
+  res.sendFile(join(__dirname, "frontend", "dist", "index.html"))
+);
 
 app.get("/:shortURL", async (req, res) => {
   const { shortURL } = req.params;

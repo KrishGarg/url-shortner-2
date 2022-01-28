@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build:frontend": "cd frontend && yarn build",
+    "deploy": "yarn build:frontend && deta deploy",
+    "start:local": "yarn build:frontend && node index.js"
+  },
   "dependencies": {
     "deta": "^1.0.1",
     "express": "^4.17.2",

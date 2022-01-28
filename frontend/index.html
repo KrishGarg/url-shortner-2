@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://img.icons8.com/material-two-tone/24/000000/puzzle.png"
+    />
+    <!-- Bootstrap Css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./index.js" defer type="module"></script>
+    <title>Shorten!</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(64, 63, 153);
+    }
+  </style>
+  <body>
+    <form
+      class="position-absolute top-50 start-50 translate-middle"
+      id="submit-form"
+    >
+      <div class="mb-3">
+        <label for="longUrl" class="form-label text-light">Long Url: </label>
+        <input
+          type="url"
+          class="form-control"
+          id="longURL"
+          name="longURL"
+          placeholder="https://example.com"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success" id="submit-btn">
+        Shrink it!
+      </button>
+    </form>
+
+    <div class="container d-none" id="success-card">
+      <div class="card position-absolute top-50 start-50 translate-middle">
+        <div class="card-body" id="shortened-div"></div>
+        <button class="btn btn-primary" id="copy-btn">Copy</button>
+        <button
+          class="btn btn-secondary my-1"
+          onclick="document.location.reload()"
+        >
+          Shorten Another
+        </button>
+      </div>
+    </div>
+
+    <div class="d-none text-center fs-2 text-white" id="some-issue">
+      There was some issue on the server! <br />
+      <a href="./" style="color: inherit">Go to Home</a>
+    </div>
+  </body>
+</html>
