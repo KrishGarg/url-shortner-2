@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.css";
+
 import copy from "copy-to-clipboard";
 
 const form = document.getElementById("submit-form");
@@ -22,11 +24,11 @@ form.addEventListener("submit", async (event) => {
     }),
   });
 
-  const data = await res.json();
   form.classList.add("d-none");
   if (!res.ok) {
     someIssue.classList.remove("d-none");
   } else {
+    const data = await res.json();
     shortenedDiv.innerText = `Shortned URL: https://pops.gq/${data.shortURL}`;
     copyBtn.onclick = () => {
       copy(`https://pops.gq/${data.shortURL}`);
